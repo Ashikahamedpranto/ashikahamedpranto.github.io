@@ -356,3 +356,25 @@ footer.site-footer {
   .course { grid-template-columns: 1fr; }
   .course .term { order: 2; }
 }
+
+
+/* ---------- Contact form ---------- */
+
+.contact-form { max-width: 480px; margin-top: 8px; }
+.form-row { margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
+.form-row label { font-size: 0.85rem; color: var(--paper-soft); }
+.form-row input, .form-row textarea {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border-radius: 3px;
+}
+.form-row input:focus, .form-row textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+.contact-form button { border: none; cursor: pointer; align-self: flex-start; }
