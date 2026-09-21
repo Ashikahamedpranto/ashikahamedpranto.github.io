@@ -1,0 +1,358 @@
+/* Ashik — academic site. Dark, bold direction, grounded in his research
+   (multilingual NLP bias, Wikipedia editing, script comparison). */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Bengali:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap');
+
+:root {
+  --ink: #0D0F12;
+  --surface: #15181C;
+  --surface-raised: #1B1F24;
+  --paper: #EDEFEA;
+  --paper-soft: #A9AFAA;
+  --paper-faint: #6E7570;
+  --rule: #262B2F;
+  --red: #C1402E;
+  --gold: #C9A227;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--paper); }
+a:hover { color: var(--red); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--rule);
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar .portrait {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 2px solid var(--rule);
+  margin-bottom: 18px;
+}
+
+.sidebar .name {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+.sidebar .role {
+  color: var(--paper-soft);
+  font-size: 0.88rem;
+  margin: 0 0 32px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: auto;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 9px 10px;
+  margin: 0 -10px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--paper-soft);
+  font-size: 0.95rem;
+  border-left: 2px solid transparent;
+}
+
+.sidebar nav a:hover {
+  color: var(--paper);
+  background: var(--surface-raised);
+}
+
+.sidebar nav a.active {
+  color: var(--paper);
+  border-left-color: var(--red);
+  background: var(--surface-raised);
+}
+
+.sidebar .social {
+  display: flex;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.sidebar .social a {
+  color: var(--paper-faint);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+.sidebar .social a:hover { color: var(--red); }
+
+/* ---------- Main ---------- */
+
+main { flex: 1; min-width: 0; }
+.wrap { max-width: 780px; margin: 0 auto; padding: 0 40px; }
+
+/* ---------- Hero (home page) ---------- */
+
+.hero {
+  position: relative;
+  padding: 100px 40px 90px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  font-family: 'Noto Sans Bengali', 'Noto Sans Devanagari', serif;
+  font-size: 5.5rem;
+  line-height: 1.1;
+  color: var(--paper);
+  overflow: hidden;
+  white-space: nowrap;
+  transform: rotate(-4deg) scale(1.2);
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 980px;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  color: var(--paper-soft);
+  max-width: 46ch;
+  margin: 0 0 28px;
+}
+
+.hero .tagline strong { color: var(--paper); font-weight: 600; }
+
+.hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--rule);
+}
+.btn-solid { background: var(--red); color: var(--ink); border-color: var(--red); }
+.btn-solid:hover { background: #a63524; color: var(--ink); }
+.btn-outline { color: var(--paper); }
+.btn-outline:hover { border-color: var(--paper-soft); color: var(--paper); }
+
+.hero-portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.08);
+}
+
+.hero-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(193,64,46,0.28), rgba(13,15,18,0.15) 55%, rgba(13,15,18,0.55));
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Sections ---------- */
+
+section.page-section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--rule);
+}
+section.page-section:last-of-type { border-bottom: none; }
+
+.page-section h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin: 0 0 22px;
+}
+
+.page-section .lede {
+  color: var(--paper-soft);
+  max-width: 62ch;
+  margin: 0 0 30px;
+}
+
+.bio p { max-width: 66ch; margin: 0 0 16px; color: var(--paper-soft); }
+.bio p:last-child { margin-bottom: 0; }
+.bio strong { color: var(--paper); }
+
+/* page header for non-home pages */
+.page-header {
+  padding: 70px 40px 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.page-header h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0 0 12px;
+}
+.page-header p { color: var(--paper-soft); max-width: 60ch; margin: 0; }
+
+/* ---------- Publications ledger ---------- */
+
+.ledger { border-top: 1px solid var(--rule); }
+
+.entry {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 4px 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.entry .year {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--paper-faint);
+  padding-top: 2px;
+}
+
+.entry .title { font-weight: 600; margin: 0 0 4px; color: var(--paper); }
+.entry .meta { font-size: 0.85rem; color: var(--paper-faint); margin: 0 0 8px; }
+.entry .desc { color: var(--paper-soft); font-size: 0.95rem; max-width: 58ch; margin: 0; }
+
+.status {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 1px 7px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+.status.accepted { color: #7FB3A0; }
+.status.pending  { color: var(--gold); }
+.status.progress { color: var(--red); }
+
+/* ---------- Teaching ---------- */
+
+.course {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.course:first-child { border-top: 1px solid var(--rule); }
+.course .name { font-weight: 600; color: var(--paper); }
+.course .term {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--paper-faint);
+  white-space: nowrap;
+}
+.course .role { grid-column: 1 / -1; color: var(--paper-soft); font-size: 0.92rem; }
+
+/* ---------- Contact ---------- */
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.05rem;
+}
+.contact-list a { border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+
+footer.site-footer {
+  padding: 36px 40px 60px;
+  color: var(--paper-faint);
+  font-size: 0.8rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 24px;
+    gap: 16px;
+  }
+  .sidebar .portrait { width: 44px; height: 44px; margin-bottom: 0; }
+  .sidebar .name, .sidebar .role { display: none; }
+  .sidebar nav { flex-direction: row; gap: 4px; margin: 0 0 0 auto; }
+  .sidebar nav a { padding: 6px 10px; font-size: 0.85rem; }
+  .sidebar .social { display: none; }
+
+  .hero { padding: 56px 24px 48px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-portrait { max-width: 260px; }
+  .page-header { padding: 48px 24px 32px; }
+  .wrap { padding: 0 24px; }
+  .entry { grid-template-columns: 1fr; }
+  .course { grid-template-columns: 1fr; }
+  .course .term { order: 2; }
+}

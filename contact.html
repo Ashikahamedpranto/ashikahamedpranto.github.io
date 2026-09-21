@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact — Ashik Ahamed Pranto</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <img class="portrait" src="images/profile.jpg" alt="Ashik Ahamed Pranto">
+    <p class="name">Ashik Ahamed<br>Pranto</p>
+    <p class="role">PhD Researcher<br>Clarkson University</p>
+    <nav>
+      <a href="index.html">Biography</a>
+      <a href="education.html">Education</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="service.html">Service</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="social">
+      <a href="https://github.com/Ashikahamedpranto">GitHub</a>
+      <a href="mailto:ahameda@clarkson.edu">Email</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="page-header">
+      <h1>Get in touch</h1>
+      <p>Happy to hear from collaborators, fellow researchers, or students.</p>
+    </div>
+
+    <div class="wrap">
+      <section class="page-section">
+        <div class="contact-list">
+          <div>Email — <a href="mailto:ahameda@clarkson.edu">ahameda@clarkson.edu</a></div>
+          <div>GitHub — <a href="https://github.com/Ashikahamedpranto">github.com/Ashikahamedpranto</a></div>
+          <div>LinkedIn — <a href="#">linkedin.com/in/yourhandle</a></div>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <h2>Send a message</h2>
+        <form action="https://formspree.io/f/mqpapqve" method="POST" class="contact-form">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid">Send message</button>
+        </form>
+      </section>
+    </div>
+
+    <footer class="site-footer">Ashik Ahamed Pranto · COSI Lab, Clarkson University</footer>
+  </main>
+
+</div>
+</body>
+</html>
